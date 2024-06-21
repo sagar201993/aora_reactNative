@@ -4,7 +4,7 @@ import React from "react";
 const Authlayout = () => {
   return (
     <View>
-      <Text>layout</Text>
+      <Text>authlayout</Text>
     </View>
   );
 };
