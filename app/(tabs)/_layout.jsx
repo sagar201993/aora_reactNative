@@ -22,19 +22,7 @@ const TabIcon = ({ icon, color, name, focused }) => {
 const Tabslayout = () => {
   return (
     <>
-      <Tabs
-        screenOptions={{
-          tabBarActiveTintColor: "#FFA001",
-          tabBarInactiveTintColor: "#CDCDE0",
-          tabBarShowLabel: false,
-          tabBarStyle: {
-            backgroundColor: "#161622",
-            borderTopWidth: 1,
-            borderTopColor: "#232533",
-            height: 84,
-          },
-        }}
-      >
+      <Tabs>
         <Tabs.Screen
           name="home"
           options={{

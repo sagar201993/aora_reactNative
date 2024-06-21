@@ -4,7 +4,8 @@ import { SplashScreen, Stack } from "expo-router";
 import { useFonts } from "expo-font";
 
 SplashScreen.preventAutoHideAsync();
-const Rootlayout = () => {
+
+const RootLayout = () => {
   const [fontsLoaded, error] = useFonts({
     "Poppins-Black": require("../assets/fonts/Poppins-Black.ttf"),
     "Poppins-Bold": require("../assets/fonts/Poppins-Bold.ttf"),
@@ -16,13 +17,21 @@ const Rootlayout = () => {
     "Poppins-SemiBold": require("../assets/fonts/Poppins-SemiBold.ttf"),
     "Poppins-Thin": require("../assets/fonts/Poppins-Thin.ttf"),
   });
+
   useEffect(() => {
-    if (error) throw error;
+    if (error) {
+      console.error(error);
+      return;
+    }
     if (fontsLoaded) {
       SplashScreen.hideAsync();
     }
-    if (!fontsLoaded && !error) return null;
   }, [fontsLoaded, error]);
+
+  if (!fontsLoaded) {
+    return null; // Don't render anything until fonts are loaded
+  }
+
   return (
     <Stack>
       <Stack.Screen name="index" options={{ headerShown: false }} />
@@ -30,4 +39,4 @@ const Rootlayout = () => {
   );
 };
 
-export default Rootlayout;
+export default RootLayout;
